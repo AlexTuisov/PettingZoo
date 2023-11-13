@@ -383,13 +383,12 @@ class raw_env(AECEnv, EzPickle):
 
     # Spawn Zombies at Random Location at every 100 iterations
     def spawn_zombie(self):
-        assert False
         if len(self.zombie_list) < self.max_zombies:
             self.zombie_spawn_rate += 1
             zombie = Zombie(self.np_random)
 
             if self.zombie_spawn_rate >= self.spawn_rate:
-                zombie.rect.x = self.np_random.integers(0, const.SCREEN_WIDTH)
+                zombie.rect.x = self.np_random.integers(0, const.SCREEN_WIDTH//2)
                 zombie.rect.y = 5
 
                 self.zombie_list.add(zombie)
